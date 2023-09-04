@@ -1,0 +1,133 @@
+:root{
+ --red: hsl(0, 78%, 62%);
+ --cyan: hsl(180, 62%, 55%);
+ --orange: hsl(34, 97%, 64%);
+ --blue: hsl(212, 86%, 64%);
+ --dark_blue: hsl(234, 12%, 34%);
+ --grayish_blue: hsl(229, 6%, 66%);
+ --gray: hsl(0, 0%, 98%); 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.container {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 200px 250px 250px 250px 250px;  
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "Header"
+      "SuperVisor"
+      "TeamBuilder"
+      "Karma"
+      "Calculator";
+    margin-top: 50px;
+    font-family: 'Poppings', cursive;  
+  }
+
+h2 {
+    font-weight: 600;
+}
+
+.header { 
+    grid-area: Header;
+    text-align: center;     
+}
+
+.header p{
+    padding: 20px 30px;
+    text-align: center; 
+}
+
+.grey, p {
+    color: var(--grayish_blue);
+    font-weight: 200;  
+}
+
+.superVisor { 
+    grid-area: SuperVisor;
+    border-top: 4px solid var(--cyan) ;
+}
+
+.card{
+    padding-bottom: 50px;
+    margin-bottom:  50px;
+    margin-left: 40px; 
+    margin-right: 40px; 
+}
+
+.card h2 {
+    padding-top: 30px; 
+    padding-bottom: 30px; 
+}
+
+img{
+    padding-top: 20px;
+    position: relative;
+    float:right; 
+  
+}
+
+.teamBuilder { 
+    grid-area: TeamBuilder;
+    border-top: 4px solid var(--red) ;
+}
+
+
+.karma { 
+    grid-area: Karma;
+    border-top: 4px solid var(--orange) ;
+}
+
+
+.calculator { 
+    grid-area: Calculator; 
+    border-top: 4px solid var(--blue) ;
+
+}
+
+@media screen and (min-width: 60rem) {
+
+    .container {  
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 16px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "header header header"
+          ". teamBuilder ."
+          "superVisor teamBuilder calculator"
+          "superVisor karma calculator"
+          ". karma ."
+          ". . .";
+      }
+      
+      .card {
+        box-shadow: 0px 15px 30px 3px  var(--grayish_blue);
+        text-align: center; 
+      }
+
+      img {
+        float: right;
+        margin-right: 3em;  
+      }
+
+      .header { grid-area: header; }
+      
+      .teamBuilder { grid-area: teamBuilder; }
+      
+      .calculator { grid-area: calculator; }
+      
+      .superVisor { grid-area: superVisor; }
+      
+      .karma { grid-area: karma; }
+      
+      
+ 
+    
+}
