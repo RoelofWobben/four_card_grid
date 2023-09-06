@@ -1,133 +1,144 @@
-:root{
- --red: hsl(0, 78%, 62%);
- --cyan: hsl(180, 62%, 55%);
- --orange: hsl(34, 97%, 64%);
- --blue: hsl(212, 86%, 64%);
- --dark_blue: hsl(234, 12%, 34%);
- --grayish_blue: hsl(229, 6%, 66%);
- --gray: hsl(0, 0%, 98%); 
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --dark_blue: hsl(234, 12%, 34%);
+    --grayish_blue: hsl(229, 6%, 66%);
+    --gray: hsl(0, 0%, 98%);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-    display: grid; 
-    grid-template-columns: 1fr; 
-    grid-template-rows: 200px 250px 250px 250px 250px;  
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "Header"
-      "SuperVisor"
-      "TeamBuilder"
-      "Karma"
-      "Calculator";
-    margin-top: 50px;
-    font-family: 'Poppings', cursive;  
-  }
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "Header"
+        "SuperVisor"
+        "TeamBuilder"
+        "Karma"
+        "Calculator";
+    font-family: 'Poppings', cursive;
+    gap: 32px;
+    max-width: 80rem;
+    margin: 1rem;
+}
 
-h2 {
+h1 {
     font-weight: 600;
 }
 
-.header { 
+span {
+    display: block; 
+}
+
+.header {
     grid-area: Header;
-    text-align: center;     
+    text-align: center;
 }
 
-.header p{
+.header p {
     padding: 20px 30px;
-    text-align: center; 
+    text-align: center;
 }
 
-.grey, p {
+.grey,p {
     color: var(--grayish_blue);
-    font-weight: 200;  
+    font-weight: 200;
+    display: block; 
 }
 
-.superVisor { 
+.superVisor {
     grid-area: SuperVisor;
-    border-top: 4px solid var(--cyan) ;
+    border-top: 4px solid var(--cyan);
 }
 
-.card{
-    padding-bottom: 50px;
-    margin-bottom:  50px;
-    margin-left: 40px; 
-    margin-right: 40px; 
+.card {
+    padding: 20px;
+    box-shadow: 0p 15px 30px 3px var(--grayish_blue);
+    display: grid;
+    gap: 16px;
 }
 
-.card h2 {
-    padding-top: 30px; 
-    padding-bottom: 30px; 
-}
-
-img{
-    padding-top: 20px;
+img {
     position: relative;
-    float:right; 
-  
+    height: 3.5rem; 
+    width: 3.5rem; 
+    justify-self: end;
+
 }
 
-.teamBuilder { 
+.teamBuilder {
     grid-area: TeamBuilder;
-    border-top: 4px solid var(--red) ;
+    border-top: 4px solid var(--red);
 }
 
 
-.karma { 
+.karma {
     grid-area: Karma;
-    border-top: 4px solid var(--orange) ;
+    border-top: 4px solid var(--orange);
 }
 
 
-.calculator { 
-    grid-area: Calculator; 
-    border-top: 4px solid var(--blue) ;
+.calculator {
+    grid-area: Calculator;
+    border-top: 4px solid var(--blue);
 
 }
 
 @media screen and (min-width: 60rem) {
 
-    .container {  
+    .container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         gap: 16px;
-        grid-auto-flow: row;
-        grid-template-areas:
-          "header header header"
-          ". teamBuilder ."
-          "superVisor teamBuilder calculator"
-          "superVisor karma calculator"
-          ". karma ."
-          ". . .";
-      }
-      
-      .card {
-        box-shadow: 0px 15px 30px 3px  var(--grayish_blue);
-        text-align: center; 
-      }
+        grid-template-rows: auto repeat(4, 1fr);
+        grid-template-areas: "header     header      header    "
+                              ".          teamBuilder .         "
+                              "superVisor teamBuilder calculator"
+                              "superVisor karma       calculator"".          karma       .         ";
+    }
 
-      img {
-        float: right;
-        margin-right: 3em;  
-      }
+    .card {
+        box-shadow: 0px 15px 30px 3px var(--grayish_blue);
+        text-align: center;
+    }
 
-      .header { grid-area: header; }
-      
-      .teamBuilder { grid-area: teamBuilder; }
-      
-      .calculator { grid-area: calculator; }
-      
-      .superVisor { grid-area: superVisor; }
-      
-      .karma { grid-area: karma; }
-      
-      
- 
-    
+    .header {
+        grid-area: header;
+    }
+
+    .teamBuilder {
+        grid-area: teamBuilder;
+    }
+
+    .calculator {
+        grid-area: calculator;
+    }
+
+    .superVisor {
+        grid-area: superVisor;
+    }
+
+    .karma {
+        grid-area: karma;
+    }
+
+
+
+
 }
